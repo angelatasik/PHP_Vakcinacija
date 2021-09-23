@@ -1,0 +1,33 @@
+.mr-3{
+    float: left !important;
+    margin-right: 20px;
+}
+
+.btn, .btn-primary {
+    margin-top: 10px;
+}
+
+.margin{
+    margin-top: 40px;
+    color:white;
+}
+
+.ask{
+    background: linear-gradient(rgba(0,0,50,0.5), rgba(0,0,50,0.5)), url(../images/covid19.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 60px;
+}
+
+
+.submit{
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(81, 81, 154)!important;
+    border-color: rgb(77, 77, 224)!important;
+}
+
+.submit:hover{
+    background-color: rgb(206, 206, 206) !important;
+    color: rgb(57, 57, 120)!important;
+    border-color: rgb(77, 77, 224)!important;
+}

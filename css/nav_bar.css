@@ -1,0 +1,22 @@
+
+.btn-outline-success{
+    margin-top: 10px;
+    margin-left: 5px;
+    color: rgb(255, 255, 255)!important;
+    outline-color: rgb(77, 77, 224)!important;
+    border-color: rgb(77, 77, 224)!important;
+
+}
+
+.btn-outline-success:hover, .btn-success:hover, .btn-success{
+    margin-top: 10px;
+    background-color: rgb(77, 77, 224) !important;
+    border-color: rgb(77, 77, 224)!important;
+
+
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
