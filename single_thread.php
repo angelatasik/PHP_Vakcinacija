@@ -21,7 +21,10 @@
     <?php include 'partials/_footer.php'; ?>
 
     <?php
+    
+    session_start();
     $threadId = $_GET['threadid'];
+    $username = $_SESSION['username'];
     $sql = "SELECT * FROM `threads` WHERE thread_id=$threadId";
     $result = mysqli_query($con, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
@@ -44,8 +47,8 @@
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method == 'POST'){
         $comment = $_POST['comment'];
-        $username = $_POST['username'];
-        $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_time`, `comment_user_id`) VALUES ('$comment', '$id', current_timestamp(), '$username');";
+        $date = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_time`, `comment_user_id`) VALUES ('$comment', '$threadId', '$date', '$username' );";
         $result = mysqli_query($con, $sql);
         $showAlert = true;
         if($showAlert){
@@ -66,7 +69,6 @@
             <div class="form-group">
                 <label for="exampleFormControlTextArea1" style="color:white">Type your comment</label>
                 <textarea class="form-control" id="comment" name="comment" rows="3" placeholder=" "></textarea>
-                <input type="hidden" name="username" value="' .$_SESSION['username']. '">
             </div>
             <button type="submit" class="btn btn-primary submit">Post comment</button>
         </form>
@@ -84,6 +86,7 @@
             $noResult = false;
             $id = $row['comment_id'];
             $content = $row['comment_content'];
+            
             $user = $row['comment_user_id'];
             $comment_time = $row['comment_time'];
 

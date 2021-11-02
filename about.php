@@ -18,6 +18,27 @@
 
   <?php include 'database/connect_to_database.php'; ?>
 
+  <div class="container my-4">
+        <div class="jumbotron">
+            <h1 class="display-4 text-center">Welcome to iVaccine forum!</h1>
+            <p class="lead text-center">This forum is to share your thoughts about the vaccines. Please contribute and
+                share
+                your knowledge or experience.</p>
+            <hr class="my-4">
+
+            <p class="text-center">COVID-19 vaccines are free and available to anyone who wants one. 
+                COVID-19 vaccines are free and available to anyone who wants one.
+                In this Page you can get more informations about  the vaccines. Get and put comment about them
+                and ask questions.
+                Hope so it will help you decide on the right choice and save your health.</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+
 
   <!-- Optional JavaScript; choose one of the two! -->
 

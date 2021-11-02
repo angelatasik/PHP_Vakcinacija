@@ -32,31 +32,15 @@ $nav = '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <li class="nav-item">
         <a class="nav-link" href="contact.php" tabindex="-1">Get more infos</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Categories
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">';
-        
-        
-        
-for($x = 0; $x<3; $x++){
-  $row = mysqli_fetch_assoc($result);
-  $vaccineName = $row['vaccine_name'];
-  $vaccineId = $row['vaccine_id'];
-  $nav = $nav.'<li><a href="threads.php?vaccineId='.$vaccineId.'"class="dropdown-item" href="#">'.$vaccineName.'</a></li>';
-}
-
-$nav = $nav.'<li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Show all</a></li>
-        </ul>
+      <li class="nav-item">
+      <a class="nav-link" href="categories.php">Categories</a>
       </li>
     </ul>
     <form class="d-flex" method="get" action="search.php">
       <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-success" type="submit">Search</button>
     </form>
-    <button class="btn btn-outline-success">Log Out </button>
+    <a class="btn btn-outline-success" href="logout.php">Log Out </a>
     </div>
 </div>
 </nav>';

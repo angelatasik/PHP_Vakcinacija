@@ -21,7 +21,11 @@
     <?php include 'partials/_footer.php'; ?>
 
     <?php
+    
+    session_start();
+
     $vaccine_id = $_GET['vaccineId'];
+    $username = $_SESSION['username'];
     $sql = "SELECT * FROM `covid_vaccines` WHERE vaccine_id = $vaccine_id";
     $result = mysqli_query($con, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
@@ -36,9 +40,11 @@
     if ($method == 'POST'){
         $th_title = $_POST['title'];
         $th_desc = $_POST['desc'];
-        $username = $_POST['username'];
-        $sql = "INSERT INTO `threads` (`thread_vaccine_id`, `thread_title`, `thread_description`, `thread_user_id`, `timestamp`) VALUES ('$vaccine_id', '$th_title', '$th_desc', '$username', current_timestamp())";
+        $date = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO `threads` (`thread_vaccine_id`, `thread_title`, `thread_description`, `thread_user_id`, `timestamp`) VALUES ('$vaccine_id', '$th_title', '$th_desc', '$username', '$date')";
         $result = mysqli_query($con, $sql);
+        
+       // echo $sql;
         $showAlert = true;
         if($showAlert){
             echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -130,7 +136,7 @@
             <div class="form-group">
                 <label for="exampleFormControlTextArea1" style="color:white">Elaborate Your Problem or Experience</label>
                 <textarea class="form-control" id="desc" name="desc" rows="3" placeholder=" "></textarea>
-                <input type="hidden" name="username" value="' .$_SESSION['username']. '">
+                
             </div>
             <button type="submit" class="btn btn-primary submit">Submit</button>
         </form>
